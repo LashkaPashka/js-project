@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Laboratory</title>
+</head>
+<body>
+<div id='header' style="height: 200px; ">
+<a href="https://www.futuregadgetlab.com">Hello world!</a>
+</div>
+<div id='content' style="height: 400px; font-size: 36pt; border: 5px solid #999; backgroundcolor: #B0E0E6;" >
+<p>!linux! </p>
+</div>
+<div id='footer'>IBTKS</div>
+</body>
+</html>

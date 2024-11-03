@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>  
+    <head>  
+
+    </head>
+
+    <body>
+        
+        <button onclick="playGame('rock')"> rock </button>
+        <button onclick="playGame('paper')"> paper </button>
+        <button onclick="playGame('scissors')"> scissors </button>
+        <button onclick="
+        sorce.win = 0;
+        sorce.lose = 0;
+        sorce.tie = 0;
+        updateItems();
+        "> Reset </button>
+
+        <p class="js-class1"> </p>
+
+        <p class="js-class2"> </p>
+        <script>
+            sorce = (JSON.parse(localStorage.getItem('sorce')) || 
+            {
+                win: 0,
+                lose: 0,
+                tie: 0
+            });
+            updateItems();
+            function cartRandom()
+            {
+                const varRandom = Math.random();
+                let result = '';
+                if (varRandom > 0 && varRandom < 1/3)
+                     result = 'rock';
+                else if (varRandom > 1/3 && varRandom < 2/3)
+                    result = 'paper';
+                else if (varRandom > 2/3 && varRandom < 1)
+                    result = 'scissors';
+                return result;
+            }
+            
+            function playGame(step)
+            {
+                const result = cartRandom();
+                let param = '';
+            
+                if (step === 'rock')
+                {
+                    if (result === 'rock')
+                        param = 'Tie.';
+                    else if (result === 'paper')
+                         param = 'You lose.';
+                    else if (result === 'scissors')
+                        param = 'You win.';      
+                }
+                else if (step == 'scissors')
+                {
+                    if (result === 'rock')
+                        param = 'You lose.';
+                    else if (result === 'paper')
+                         param = 'You win.';
+                    else if (result === 'scissors')
+                        param = 'Tie.';
+                }
+                else if (step == 'paper')
+                {
+                    if (result === 'rock')
+                        param = 'You win.';
+                    else if (result === 'paper')
+                         param = 'Tie.';
+                    else if (result === 'scissors')
+                        param = 'You lose.';
+                }
+                
+                if (param === 'You win.')
+                    sorce.win++;
+                else if (param === 'You lose.')
+                    sorce.lose++;
+                else if (param === 'Tie.')
+                    sorce.tie++;
+                
+                document.body.querySelector('.js-class1').innerHTML = `Move Player = ${step}, computer = ${result}`;
+                updateItems();
+                localStorage.setItem('sorce', JSON.stringify(sorce));
+            }
+
+            function updateItems()
+            {
+                localStorage.getItem('sorce')
+                
+                document.querySelector('.js-class2').innerHTML = `Win = ${sorce.win}, Lose = ${sorce.lose}, Tie = ${sorce.tie}`;
+            }
+        </script>
+    </body>
+</html>

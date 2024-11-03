@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>  
+    <head>  
+        <title>Store-server</title>
+
+
+    </head>
+
+    <body>
+        <button onclick="subscribe();" class="js-subscribe"> Subscribe </button>
+
+        <script>
+           function subscribe()
+           {
+            if (document.querySelector('.js-subscribe').innerText === 'Subscribe')
+                document.querySelector('.js-subscribe').innerHTML = 'Subscribed';
+            else
+            window.document.querySelector('.js-subscribe').innerHTML = 'Subscribe';
+        }
+        </script>
+    </body>
+</html>

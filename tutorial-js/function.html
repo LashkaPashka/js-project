@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>  
+    <head>  
+        <script>
+            function cartRandom()
+            {
+                const varRandom = Math.random();
+                let result = '';
+                if (varRandom > 0 && varRandom < 1/3)
+                     result = 'rock';
+                else if (varRandom > 1/3 && varRandom < 2/3)
+                    result = 'paper';
+                else if (varRandom > 2/3 && varRandom < 1)
+                    result = 'scissors';
+                return result;
+            }
+            
+            const product = {
+                name: 'jeans',
+                quantity: 15,
+                foo: function foo1()
+                {
+                    console.log('Hello');
+                }
+            }
+            
+            let result = JSON.stringify(product)
+            
+
+            function playGame(step)
+            {
+                const result = cartRandom();
+                let param = '';
+                if (step === 'rock')
+                {
+                    if (result === 'rock')
+                        param = 'Tie.';
+                    else if (result === 'paper')
+                         param = 'You lose.';
+                    else if (result === 'scissors')
+                        param = 'You win.';      
+                }
+                else if (step == 'scissors')
+                {
+                    if (result === 'rock')
+                        param = 'You lose.';
+                    else if (result === 'paper')
+                         param = 'You win.';
+                    else if (result === 'scissors')
+                        param = 'Tie.';
+                }
+                else if (step == 'paper')
+                {
+                    if (result === 'rock')
+                        param = 'You win.';
+                    else if (result === 'paper')
+                         param = 'Tie.';
+                    else if (result === 'scissors')
+                        param = 'You lose.';
+                }
+                
+                console.log(alert(`Your step = ${step}, but computer = ${result}. Result = ${param}`))
+            }
+        </script>
+    </head>
+
+    <body>
+        <button onclick="playGame('rock')"> rock </button>
+        <button onclick="playGame('paper')"> paper </button>
+        <button onclick="playGame('scissors')"> scissors </button>
+    </body>
+</html>
